@@ -1,3 +1,5 @@
+// ADDing a comment to test the git commit hook
+
 // Host information
 const hostName = document.getElementById('host-name');
 const hostAddress = document.getElementById('host-address');
