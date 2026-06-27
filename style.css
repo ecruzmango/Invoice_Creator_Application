@@ -1,0 +1,296 @@
+body {
+
+    background: rgb(255, 252, 252);
+    margin: 0;
+    padding: 40px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Form Layout: the overall king & ruler of the website.
+Defines columns for the form & recent searches */
+.form-layout {
+    display: grid;
+    /* two columns: one for the form, one for recent searches */
+    /* the first column is flexible, but has a max width of 800px, the second column is fixed at 200px */
+    grid-template-columns: minmax(0, 800px) 420px; 
+
+    justify-content: center;
+    gap: 30px;
+    align-items: start; /* align items to the top of the grid */
+}
+
+.main-form{
+    width: 100%;
+}
+
+.invoice-info,
+.customer-info,
+.description {
+    max-width: 800px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.invoice-info h2,
+.customer-info h2,
+.description h2,
+.recent-searches h2 {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 2px solid black;
+    border-radius: 9999px;
+    background: white;
+    margin-bottom: 20px;
+}
+
+.recent-searches h2 {
+    /* background-color: #4CAF; */
+    white-space: nowrap;
+}
+
+
+.invoice-info-box,
+.customer-info-box{
+    border: 2px solid #222;
+    border-radius: 15px;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 45px;
+    justify-items: center;
+}
+
+.input-field {
+    background: black;
+    border: none;
+    outline: none;
+    width: 100%;
+    max-width: 220px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 9999px;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+    color: #fff;
+}
+
+.input-field::placeholder {
+    color: #cfcfcf;
+}
+
+.big-box {
+    grid-column: span 2;
+    max-width: 500px;
+}
+
+.add-item-button,
+.remove-item-button,
+.submit-button {
+    background: black;
+    border: none;
+    outline: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 9999px;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.add-item-button:hover,
+.remove-item-button:hover,
+.submit-button:hover {
+    background: white;
+    color: black;
+    transform: scale(1.03);
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+
+.description-box {
+    background: white;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 3fr 0.7fr 0.7fr 0.7fr;
+    gap: 8px;
+    justify-items: stretch;
+    align-items: center;
+}
+
+.description-header,
+.description-box {
+    display: grid;
+    grid-template-columns: 3fr 0.7fr 0.7fr 0.7fr;
+    gap: 8px;
+    align-items: center;
+}
+
+.description-header {
+    background: #111827;
+    color: white;
+    border-radius: 8px;
+    padding: 0 25px;
+    margin-bottom: 10px;
+}
+
+.description-box {
+    background: white;
+    border: none;
+    border-radius: 0;
+    padding: 0 25px;
+    justify-items: stretch;
+}
+
+
+.description-box .input-field::placeholder {
+    color: #777;
+}
+
+.add-item-button {
+    grid-column: 1;
+    justify-self: start;
+    background: white;
+    color: #00995c;
+    border: 2px solid #00995c;
+    box-shadow: none;
+    margin-top: 8px;
+    width: 200px;
+}
+
+.remove-item-button {
+    grid-column: 2;
+    justify-self:left;
+    background: white;
+    color: #ff0000;
+    border: 2px solid #ff0000;
+    box-shadow: none;
+    margin-top: 8px;
+    width: 200px;
+}
+
+
+.description-box .input-field {
+    background: white;
+    color: black;
+    border: 2px solid #cfd3da;
+    box-shadow: none;
+    border-radius: 10px;
+    max-width: none;
+    box-sizing: border-box;
+}
+
+.description-box .input-field::placeholder {
+    color: #777;
+}
+
+.item-row,
+.item-container {
+    /* allows the child elements to be displayed as if they were direct children of the parent grid */
+    /* in simple terms, it makes the child elements of the item-row behave like they are part of the description-box grid */
+    display: contents; 
+}
+
+.recent-searches {
+    width: 420px;
+    text-align: left;
+}
+
+.recent-searches-box {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    background: white;
+    border: 2px solid #222;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.recent-searches-table {
+    width: 100%;
+    /*table-layout: fixed;*/
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+.recent-searches-table th {
+    background: #111827;
+    color: white;
+    font-size: 13px;
+    padding: 10px;
+    text-align: left;
+}
+
+.recent-searches-table td {
+    padding: 12px 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+}
+
+.recent-searches-table tr:last-child td {
+    border-bottom: none;
+}
+
+.insert-info {
+    background: white;
+    color: #00995c;
+    border: 2px solid #00995c;
+    border-radius: 9999px;
+    padding: 7px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.delete-search-info{
+    background: white;
+    color: #ff0000;
+    border: 2px solid #ff0000;
+    border-radius: 9999px;
+    padding: 7px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.insert-info:hover {
+    background: #00995c;
+    color: white;
+}
+
+@media (max-width: 1300px) {
+    .form-layout {
+        grid-template-columns: minmax(0, 800px);
+    }
+
+    .recent-searches {
+        display: none;
+    }
+}
+
+/* Remove arrows from number inputs */
+
+/* Chrome, Edge, Safari */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}

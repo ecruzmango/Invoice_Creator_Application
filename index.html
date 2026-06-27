@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Invoice Draft 1.2.0</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1 class="title">Invoice Draft 1.2.0</h1>
+
+        <div class="form-layout">
+
+            <div class="main-form">
+
+                <div class="invoice-info">
+                    <h2>Información De Su Empresa</h2>
+                    <div class="invoice-info-box">
+                        <input type="text" id="host-name" placeholder="Nombre de la empresa" class="input-field">
+                        <input type="text" id="host-address" placeholder="Dirección de la empresa" class="input-field">
+                        <input type="tel" id="host-phone-number" placeholder="Número de Teléfono" class="input-field" maxlength="14" pattern="\(\d{3}\) \d{3}-\d{4}" required> 
+                        <input type="email" id="host-email" placeholder="Correo Electrónico" class="input-field">
+                    </div>
+                </div>
+
+                <div class="customer-info">
+                    <h2>Información Del Cliente</h2>
+                    <div class="customer-info-box">
+                        <input type="text" id="company-name" placeholder="Nombre de la empresa" class="input-field">
+                        <input type="text" id="client-name" placeholder="Nombre del cliente" class="input-field">
+                        <input type="date" id="invoice-date" class="input-field">
+                        <input type="text" id="client-address" placeholder="Dirección del cliente" class="input-field">
+                        <input type="text" id="invoice-number" placeholder="Invoice Number" class="input-field">
+                        <input type="text" id="PO-number" placeholder="PO Number" class="input-field">
+                    </div>
+                </div>
+
+                <div class="description">
+                    <h2>Descripción</h2>
+                    
+                    <div class="description-header">
+                        <h3>Item</h3>
+                        <h3>Quantity</h3>
+                        <h3>Rate</h3>
+                        <h3>Amount</h3>
+                    </div>
+
+                    <div class="description-box">
+                        <div class="item-container">
+                            <div class="item-row">
+                                <input type="text" id="item-description" placeholder="Description of item/service..." class="input-field item-description">
+                                <input type="number" id="item-quantity" placeholder="1" class="input-field item-quantity">
+                                <input type="number" id="item-unit-price" placeholder="$ 0" class="input-field item-unit-price">
+                                <p class="input-field item-total" id="total-row-price">$0.00</p>
+                            </div>
+                        </div>
+
+                        <p class="total-amount" id="total-amount">Total Amount: $0.00</p>
+                            
+                        <button id="add-item-button" class="add-item-button">+ agregar elemento </button>
+                        <button id="remove-item-button" class="remove-item-button">- eliminar elemento</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="recent-searches">
+                <h2>Recientes Búsquedas</h2>
+                <div class="recent-searches-box" id="recent-searches-box">
+                    <!-- Recent searches will be dynamically added here -->
+                     
+                    <table id="recent-searches-table" class="recent-searches-table">
+                        <thead>
+                            <tr>
+                                <th>Empresa </th>
+                                <th>Cliente</th>
+                                <th>Usus</th>
+                                <th>Acion</th>
+                            </tr>
+
+                        </thead>
+                        <tbody id="recent-searches-body">
+                            <!-- Recent searches will be dynamically added here -->
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+
+        <button id="submit-button" class="submit-button">Crear Invoice</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/4.0.0/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/5.0.2/jspdf.plugin.autotable.min.js"></script>
+        <script src="index.js"></script>
+        <script src="recentSearches.js"></script>
+    </body>
+</html>
