@@ -1,4 +1,5 @@
-// ADDing a comment to test the git commit hook
+// TODO: CHANGE DATE
+// TODO: ADD $ for total amount 
 
 // Host information
 const hostName = document.getElementById('host-name');
@@ -341,7 +342,7 @@ function generateInvoicePDF(invoiceData) {
     drawTotals(doc, invoiceData);
     drawFooter(doc, invoiceData);
 
-    doc.save("invoice.pdf");
+    doc.save(clientName.value + " " + invoiceNumber.value + ".pdf");
 }
 
 /**
@@ -394,6 +395,16 @@ function drawInvoiceInfo(doc, invoiceData) {
     doc.text(invoiceData.hostInfo.email, leftX, y);
 }
 
+function formatDate(dateString) {
+    // dateString is "YYYY-MM-DD" from the date input
+    const [year, month, day] = dateString.split('-');
+
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"];
+
+    return monthNames[parseInt(month) - 1] + " " + parseInt(day) + ", " + year;
+}
+
 function drawClientInfo(doc, invoiceData) {
     const rightX = 115;
     let y = 45;
@@ -429,7 +440,7 @@ function drawClientInfo(doc, invoiceData) {
     doc.setFont(undefined, "bold");
     doc.text("Date: ", rightX, y);
     doc.setFont(undefined, "normal");
-    doc.text(invoiceData.invoiceInfo.invoiceDate, rightX + 22, y);
+    doc.text(formatDate(invoiceData.invoiceInfo.invoiceDate), rightX + 22, y);
 
     y += 6;
 
@@ -498,7 +509,7 @@ function drawTotals(doc, invoiceData) {
     doc.setTextColor(...PDF_THEME.colors.gray);
 
     doc.text("Subtotal:", 128, finalY);
-    doc.text(invoiceData.invoiceInfo.totalAmount, 184, finalY, {
+    doc.text("$" + invoiceData.invoiceInfo.totalAmount, 184, finalY, {
         align: "right"
     });
 
@@ -508,7 +519,7 @@ function drawTotals(doc, invoiceData) {
     doc.setTextColor(...PDF_THEME.colors.primary);
 
     doc.text("Total:", 128, finalY);
-    doc.text(invoiceData.invoiceInfo.totalAmount, 184, finalY, {
+    doc.text("$" + invoiceData.invoiceInfo.totalAmount, 184, finalY, {
         align: "right"
     });
 }
